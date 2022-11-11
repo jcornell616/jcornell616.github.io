@@ -9,8 +9,8 @@ permalink: /resume
 
 
 2018-2022
-:   **BS, Electrical Engineering**	| University of Florida (Gainesville, FL)
-:	**Minor, Computer Science**		| University of Florida (Gainesville, FL)
+:   **BS, Electrical Engineering**	\| University of Florida (Gainesville, FL)
+:	**Minor, Computer Science**		\| University of Florida (Gainesville, FL)
 :	**GPA:** 3.74
 
 2022-2023 (Expected)
