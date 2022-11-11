@@ -14,7 +14,7 @@ permalink: /resume
 :	**GPA:** 3.74
 
 2022-2023 (Expected)
-:   **MS, Electrical & Computer Engineering** | University of Florida (Gainesville, FL)
+:   **MS, Electrical & Computer Engineering** \| University of Florida (Gainesville, FL)
 
 
 ## Experience
