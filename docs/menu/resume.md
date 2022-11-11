@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Welcome to Lagrange!
-permalink: /about
+permalink: /aresume
 ---
 
 To be completed...
