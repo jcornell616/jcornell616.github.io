@@ -4,16 +4,10 @@ title: Welcome to Lagrange!
 permalink: /about
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+I'm in the Electrical and Computer Engineering Masters program at the University of Florida. My interests include embedded software, machine learning, statistical signal processing, and FPGA development.
 
-### Getting Started
+I have experience as an Embedded Engineering intern at Lutron Electronics. At Lutron, I did design planning for adding capabilities to a sensor device, developed driver code for an ultrasonic sensor system, integrated the drivers with an existing algorithmic codebase, performed timing analysis on the system, and set up wireless communication with the sensor device. Interning at Lutron taught me valuable software engineering skills such as working effectively with a team, documenting your design, and implementing a design on a real-time device.
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+I am active in UF's Audio Engineering Society (AES) where I am the Digital Signal Processing (DSP) Lead. This includes advising others on signal processing and machine learning applications, creating workshops on designing DSP algorithms and implementing them to work real-time on a device, and leading projects dealing with adaptive signal processing.
 
-### Example Content
-
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
-
-### Questions?
-
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+Outside of my career I enjoy writing music, playing guitar, wildlife photography, and scuba diving.
