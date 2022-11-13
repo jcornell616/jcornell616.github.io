@@ -1,7 +1,0 @@
----
-layout: page
-title: Photography
-permalink: /photography
----
-
-To be completed...
