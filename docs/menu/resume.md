@@ -4,9 +4,12 @@ title: Resume/CV
 permalink: /resume
 ---
 
+## Contact
+
+[Click here](https://jcornell616.github.io/contact.html)
+
 ## Education
 ------------
-
 
 2018-2022
 :   **BS, Electrical Engineering**	\| University of Florida (Gainesville, FL)
@@ -19,7 +22,6 @@ permalink: /resume
 
 ## Experience
 -------------
-
 
 **Embedded Engineering Intern | Lutron Electronics**
 :   *June 2022-August 2022*
@@ -48,6 +50,7 @@ permalink: /resume
 
 **Electrical Team in Machine Intelligence Lab**
 :	*August 2020-November 2020*
+
 - Assembled and tested PCB to drive servo motor
 - Wrote and tested firmware on TM4C microcontroller to drive circuit board
 
@@ -55,7 +58,7 @@ permalink: /resume
 ## Projects
 -----------
 
-**"Theremania" Theremin Vocoder**
+**"Theremania" - Theremin Vocoder**
 
 - Worked with partner to design, implement, and test voice-to-theremin vocoder
 - Implemented pitch detection, ADC driver, SPI driver, and MIDI protocol on FPGA
@@ -76,16 +79,16 @@ using UF’s HiPerGator supercomputer
 - Worked with team member to design a pipelined convolution accelerator in VHDL to speedup convolution operation by up to 24x
 
 **Analog Effects Pedals**
+
 - Built from scratch analog distortion effects pedals for guitar on perfboard, including layout, soldering, testing with oscilloscope, and enclosure construction
 
-**MIPS Processor**  	 	 	 	 	 
+**MIPS Processor**
+	 	 	 	 
 - Designed and implemented a 32-bit MIPS processor using VHDL on an FPGA
-
 
 
 ## Skills
 ---------
-
 
 **General**
 
@@ -107,6 +110,8 @@ using UF’s HiPerGator supercomputer
 * LaTex
 * Vivado
 * Quartus
+* Altium
+* Cadence
 
 **Programming Languages**
 
@@ -114,14 +119,15 @@ using UF’s HiPerGator supercomputer
 * MATLAB
 * C/C++
 * VHDL
-* Assemnly (AVR, MIPS, ARM)
+* Assembly (AVR, MIPS, ARM)
 
 
 ## Courses
 ----------
 
-
 * Advanced Machine Learning
+
+* Machine Learning for Time-Series
 
 * Neural Signals, Systems, and Technology
 
@@ -129,15 +135,13 @@ using UF’s HiPerGator supercomputer
 
 * Estimation and Detection Theory
 
-* Machine Learning for Time-Series
-
 * ECE Design I & II
 
 * Real-Time DSP Applications
 
-* Foundations of Digital Signal Processing
-
 * Fundamentels of Machine Learning
+
+* Foundations of Digital Signal Processing
 
 * Reconfigurable Computing
 
