@@ -4,6 +4,9 @@ title: About Me
 permalink: /about
 ---
 
+**Interests:** *Machine learning, statistical signal processing, neural technology, brain-computer interfaces, kernel methods, stochastic processes,
+stochastic control, sparse sensing, graph-based learning*
+
 I'm in the Electrical and Computer Engineering Masters program at the University of Florida. My interests include machine learning, statistical signal processing,
 neural technology, and embedded software.
 
