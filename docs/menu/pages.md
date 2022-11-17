@@ -4,4 +4,7 @@ title: Pages
 permalink: /pages
 ---
 
-*To be continued...*
+## Misc.
+--------
+
+- [Site introduction](https://jcornell616.github.io/about-this-site)
