@@ -4,7 +4,7 @@ title: "Graph Theory and Linear Algebra"
 author: "Jackson Cornell"
 categories: journal
 tags: [graph theory, linear algebra, matrices, spectral clustering]
-image: network.jpg
+image: network.png
 ---
 
 ## Table of Contents <a name="toc"></a>
