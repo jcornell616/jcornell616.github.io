@@ -4,7 +4,7 @@ title: "About this Site"
 author: "Jackson Cornell"
 categories: journal
 tags: [introduction,misc,website]
-image: IMG_1928.jpg
+image: /photography/IMG_1928.jpg
 ---
 
 ## Hello
