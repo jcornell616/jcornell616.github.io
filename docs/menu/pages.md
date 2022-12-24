@@ -4,6 +4,8 @@ title: Pages
 permalink: /pages
 ---
 
+A directory for all posts made on this site.
+
 ## Misc.
 --------
 
