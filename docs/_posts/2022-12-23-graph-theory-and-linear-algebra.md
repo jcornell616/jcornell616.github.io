@@ -4,10 +4,8 @@ title: "Graph Theory and Linear Algebra"
 author: "Jackson Cornell"
 categories: journal
 tags: [graph theory, linear algebra, matrices, spectral clustering]
-image: /graphs/network.jpg
+image: graphs/network.jpg
 ---
-
-# Graphs and Linear Algebra
 
 ## Table of Contents <a name="toc"></a>
 
@@ -76,7 +74,7 @@ G = graphs.Sensor(N=N, seed=42)
 G.plot_signal(G.U[:, 1])
 ```
 
-<img src="./graphs/network.png" alt="network" width="500"/>
+<img src="graphs/network.png" alt="network" width="500"/>
 
 ### Converting non-graph data into graphs <a name="converting"></a>
 
@@ -117,7 +115,7 @@ W = np.around(W, 3)
 
 Below shows the matrix output of the graph we generated earlier. Note the symmetric property of the matrix.
 
-<img src="/graphs/adjacency.png" alt="adjacency" width="500"/>
+<img src="graphs/adjacency.png" alt="adjacency" width="500"/>
 
 ### Degree Matrix <a name="degree"></a>
 
@@ -139,7 +137,7 @@ D = np.around(D, 3)
 
 Note that the below matrix is non-zero only along its diagonal.
 
-<img src="/graphs/diagonal.png" alt="degree" width="400"/>
+<img src="graphs/diagonal.png" alt="degree" width="400"/>
 
 ### Incidence Matrix <a name="incidence"></a>
 
@@ -168,7 +166,7 @@ Additionally, the combinatorial graph Laplacian has the following properties:
 
 Note that the diagonals are the entries to $D$ and the non-diagonals are the negative entries of $W$.
 
-<img src="/graphs/laplacian_com.png" alt="laplacian_com" width="500"/>
+<img src="graphs/laplacian_com.png" alt="laplacian_com" width="500"/>
 
 ### Symmetric Normalized Graph Laplacian <a name="sym-laplacian"></a>
 
@@ -191,7 +189,7 @@ Properties 2 and 4 still holds from the combinatorial graph Laplacian, with 1 an
 
 The Laplacian matrix is shown below, note the differences between it and the previous Laplacian:
 
-<img src="/graphs/laplacian_sym.png" alt="laplacian_sym" width="500"/>
+<img src="graphs/laplacian_sym.png" alt="laplacian_sym" width="500"/>
 
 ## The Graph Laplacian: a spectral representation of graphs <a name="laplacian"></a>
 
@@ -237,7 +235,7 @@ plt.legend()
 plt.show()
 ```
 
-<img src="/graphs/pca.png" alt="pca" width="500"/>
+<img src="graphs/pca.png" alt="pca" width="500"/>
 
 With this in mind, we can use the eigendocomposition (that is, the retrieval of all eigenvalues and corresponding eigenvectors) of the graph Laplacian $L$ to
 give us important information about the underlying structure of our graph.
@@ -247,7 +245,7 @@ give us important information about the underlying structure of our graph.
 By taking the eigenvectors of $L$, we are effectively creating a manifold of our graph data in Euclidean space. We will take a look at the *Minnesota Road Network*
 dataset, modeled by a large graph with nodes that have time-varying values.
 
-<img src="/graphs/minnesota.png" alt="minnesota" width="500"/>
+<img src="graphs/minnesota.png" alt="minnesota" width="500"/>
 
 As before, we construct $L$ from $W$ and $D$. We then take the eigendecomposition of $L$ to get us the spectral components of $\mathcal{G}$. By taking the first 3
 eigenvectors, we can visualize the spectral manifold in a 3D space.
@@ -280,7 +278,7 @@ w, v = np.linalg.eigh(L_combinatorial)
 manifold = v[:, :3]
 ```
 
-<img src="/graphs/manifold.png" alt="manifold" width="500"/>
+<img src="graphs/manifold.png" alt="manifold" width="500"/>
 
 Interestingly, this process bares striking reseblance to a widely used manifold learning algorithm, kernel PCA [3]. Kernel PCA is similar to PCA, but instead of
 using the eigenvectors of the covariance matrix for the principal components, uses the eigenvectors of a kernel matrix $K$ constructed from the input data. We will
@@ -333,9 +331,9 @@ plt.ylabel('x2')
 plt.show()
 ```
 
-<img src="/graphs/circles.png" alt="circles" width="500"/>
+<img src="graphs/circles.png" alt="circles" width="500"/>
 
-<img src="/graphs/kmeans.png" alt="kmeans" width="500"/>
+<img src="graphs/kmeans.png" alt="kmeans" width="500"/>
 
 In order to perform spectal clustering on this dataset, we first must convert it into a graph. A modified version of the k-nearest neighbors is used, where all
 points within a specified radius have their weights computed. The algorithm is then applied as specified above.
@@ -398,9 +396,9 @@ The top plot below shows the resulting spectral manifold after applying the grap
 cluster count). The seperation of clusters relies mainly on the conversion of the data to its graph form. There is otherwise no hyperparameter tuning necessary to
 find an optimal performance of the algorithm. The bottom plot shows the resulting clustering after applying k-means to the spectral manifold.
 
-<img src="/graphs/circles_manifold.png" alt="circles_manifold" width="500"/>
+<img src="graphs/circles_manifold.png" alt="circles_manifold" width="500"/>
 
-<img src="/graphs/spectral.png" alt="spectral" width="500"/>
+<img src="graphs/spectral.png" alt="spectral" width="500"/>
 
 ## Conclusion <a name="conclusion"></a>
 
