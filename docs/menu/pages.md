@@ -8,3 +8,8 @@ permalink: /pages
 --------
 
 - [Site introduction](https://jcornell616.github.io/about-this-site)
+
+## Graph Signal Processing
+--------------------------
+
+- [Graph Theory and Linear Algebra](https://jcornell616.github.io/graph-theory-and-linear-algebra)
