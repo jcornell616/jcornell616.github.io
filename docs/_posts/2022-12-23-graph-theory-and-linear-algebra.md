@@ -58,7 +58,7 @@ intersections. Furthermore, the edges can either by *directed*, in which informa
 
 More formally, a graph $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ can be represented by a set of nodes $\mathcal{V}$ and set of edges between nodes $\mathcal{E}$.
 If weighted, a graph $\mathcal{G} = (\mathcal{V}, \mathcal{E}, W)$ is further represented by its adjacency matrix $W \in \mathbb{R}^{N \times N}$, where
-$N = |\mathcal{V}|$ is the number of nodes. [1](#ref1)
+$N = |\mathcal{V}|$ is the number of nodes. [[1]](#ref1)
 
 We begin this tutorial with a simple example: we will use PyGSP to randomly generate a network of sensors. The sensors are represented below by the colored nodes,
 while the edges between them measure some distance or connection between sensors. 
@@ -79,7 +79,7 @@ G.plot_signal(G.U[:, 1])
 ### Converting non-graph data into graphs <a name="converting"></a>
 
 The input data you work with does not necessarily have to start as a graph in order to process it as one. Several methods exist to convert data points into nodes
-of a graph [2](#ref2):
+of a graph [[2]](#ref2):
 
 1. **$\epsilon$-neighbor graph**: Create an unweighted graph between points, where two nodes $x_i$ and $x_j$ are connected if $d(x_i, x_j) < \epsilon_d$, or
 $s(x_i, x_j) > \epsilon_s$.
@@ -98,7 +98,7 @@ $s(x_i, x_j) = \exp(-\dfrac{||x_i - x_j||^2}{2 \sigma^2})$. This is often paried
 The most critical matrix representation of any graph is its adjacency matrix $W \in \mathbb{R}^{N \times N}$, which dictates the connections between nodes.
 Assuming a graph is weighted, a connection between two nodes $v_i, v_j \in \mathcal{V}$ are given by the matrix element $w_{ij} \in W$, where $w_{ij}$ is zero
 if no connection is present, and the non-zero value of the weighted edge otherwise. If a graph is unweighted, $w_{ij} = 1$ when a connection is present. Note that
-for undirected graphs, $W$ is symmetric, or in other words, $w_{ij} = w_{ji}$ for all $i$ and $j$. [2](#ref2)
+for undirected graphs, $W$ is symmetric, or in other words, $w_{ij} = w_{ji}$ for all $i$ and $j$. [[2]](#ref2)
 
 ```python
 # instantiate adjacency matrix W
@@ -121,7 +121,7 @@ Below shows the matrix output of the graph we generated earlier. Note the symmet
 
 The degree matrix may seem like it carries less information than the adjacency matrix, but we will see shortly why it is so important. The degree matrix tells us
 the number of connections from a given node. More formally, $d_{ii} = \sum_{j=1}^N w_{ij}$. Note that the matrix is diagonal. If the graph is unweighted, the
-entree at $d_{ii}$ is simply the number of connections. [2](#ref2)
+entree at $d_{ii}$ is simply the number of connections. [[2]](#ref2)
 
 ```python
 # instantiate degree matrix D
@@ -150,7 +150,7 @@ generally assume our graphs to be undirected, but it is necessary to discuss bef
 From the incidence matrix $M \in \mathbb{R}^{|\mathcal{V}| \times |\mathcal{E}|}$, constructing the graph Laplacian
 $L \in \mathbb{R}^{|\mathcal{V}| \times |\mathcal{V}|}$ is simply $L = M M^T$. Interestingly, this is equivalent to $L = D - W$, which is how we generally
 construct it. Note that this graph Laplacian, otherwise known as the combinatorial graph Laplacian, holds information about 3 seperate matrices used to describe
-the graph $\mathcal{G}$. [2](#ref2)
+the graph $\mathcal{G}$. [[2]](#ref2)
 
 ```python
 # compute combinatorial graph Laplacian
@@ -170,7 +170,7 @@ Note that the diagonals are the entries to $D$ and the non-diagonals are the neg
 
 ### Symmetric Normalized Graph Laplacian <a name="sym-laplacian"></a>
 
-The normalized graph Laplacian has several definitions, but we will go with the one presented in [3], which differs from the one in [2](#ref2) in only that the
+The normalized graph Laplacian has several definitions, but we will go with the one presented in [3], which differs from the one in [[2]](#ref2) in only that the
 eigenvalues in one are equal to one minus the eigenvalues in the other. The symmetric normalized graph Laplacian is constructed as follows:
 $L = D^{-1/2} W D^{-1/2}$.
 
@@ -197,7 +197,7 @@ The Laplacian matrix is shown below, note the differences between it and the pre
 
 In a linear space, an operator (or matrix) $T \in \mathbb{R}^{N \times N}$ can do two things to a vector: rotate and scale it. To retrieve the eigenvalues and
 eigenvectors of an operator $T$, one only needs to solve the equation $T u = \lambda u$ (or, equivalently $(T - \lambda I) u = 0$), where $\lambda \in \mathbb{R}$
-is the non-zero scalar eigenvalue and $u \in \mathbb{R}^{N}$ is the corresponding eigenvector [4](#ref4). Essentially what this can be interpreted as is finding a vector
+is the non-zero scalar eigenvalue and $u \in \mathbb{R}^{N}$ is the corresponding eigenvector [[4]](#ref4). Essentially what this can be interpreted as is finding a vector
 that, when the operator is applied to said vector, simply scales the vector instead of rotating it.
 
 Eigens are useful for characterizing an operator, and serve a similar function to finding the roots of a polynomial. For example, the eigenvector with the maximum
@@ -280,7 +280,7 @@ manifold = v[:, :3]
 
 ![manifold](/../assets/img/gsp/manifold.png?raw=true)
 
-Interestingly, this process bares striking reseblance to a widely used manifold learning algorithm, kernel PCA [3](#ref3). Kernel PCA is similar to PCA, but instead of
+Interestingly, this process bares striking reseblance to a widely used manifold learning algorithm, kernel PCA [[3]](#ref3). Kernel PCA is similar to PCA, but instead of
 using the eigenvectors of the covariance matrix for the principal components, uses the eigenvectors of a kernel matrix $K$ constructed from the input data. We will
 not go into detail on kernel methods here, but essentially the graph Laplacian $L$ is equivalent to constructing the kernel matrix $K$.
 
@@ -291,8 +291,8 @@ methods: it can cluster non-linearly seperable groups, and it can cluster on gra
 $\mathcal{G}$ allows a mapping to a manifold in which traditional Euclidean distance measures can be applied. Not only does this allow traditional clustering
 methods like k-means to be applied to graph data, but it also means difficult non-graph data (such as non-linearly seperable clusters) can be
 [mapped to graphs](#converting), and the same methods can then be applied. It is worth mentioning that there are alternative methods to clustering on graphs, such
-as mimumum cut algorithms, but these are NP-hard, making spectral clustering an appetizing alternative [2](#ref2). Below is a spectral clustering algorithm presented in
-[3](#ref3), where given are the adjacenecy and degree matrices $W, D \in \mathbb{R}^{N \times N}$ and the clusters $k$:
+as mimumum cut algorithms, but these are NP-hard, making spectral clustering an appetizing alternative [[2]](#ref2). Below is a spectral clustering algorithm presented in
+[[3]](#ref3), where given are the adjacenecy and degree matrices $W, D \in \mathbb{R}^{N \times N}$ and the clusters $k$:
 
 1. Compute symmetric normalized graph Laplacian $L = D^{-1/2} W D^{-1/2}$
 
