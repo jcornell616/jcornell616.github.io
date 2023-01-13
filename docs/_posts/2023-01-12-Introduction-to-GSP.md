@@ -7,8 +7,6 @@ tags: [graph theory, linear algebra, graph signal processing, shift operator, gr
 image: /gsp/ring-preprocessed.png
 ---
 
-# Graph Signal Processing: Introduction and Shift Operation
-
 ## Table of Contents <a name="toc"></a>
 
 0. [Table of Contents](#toc)
@@ -190,7 +188,8 @@ In classical DSP, signals are either indexed temporally (such as audio), or spat
 
 ### Signals on graphs <a name="signal-graph"></a>
 
-Extending our signal model to graphs is fairly simple. Given a graph $\mathcal{G} = (\mathcal{V}, \mathcal{E}, W)$ with number of nodes $N = |\mathcal{V}|$, a signal is defined as $\mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1}]^T$ where the value of the signal at node $n$ is given by $x_n$. [[2]](#ref2)
+Extending our signal model to graphs is fairly simple. Given a graph $\mathcal{G} = (\mathcal{V}, \mathcal{E}, W)$ with number of nodes 
+$N = | \mathcal{V} |$, a signal is defined as $\mathbf{x} = [ x_0 \; x_1 \; ... \; x_{N-1} ]^T$ where the value of the signal at node $n$ is given by $x_n$. [[2]](#ref2)
 
 ### Shifting with graphs <a name="shift-graph"></a>
 
@@ -206,7 +205,7 @@ It is important to note the role shift-invariance plays with this definition of 
 
 Since our filter $H$ is shift-invariant, we can define $H$ as a polynomial of $A_c$ i.e. $H = h(A_c)$ with $h(\lambda_n) = h_0 + h_1 \lambda_n^1 + ... + h_{M-1} \lambda_n^{M-1}$ for an $M$-order filter [[3]](#ref3). Using the eigendecomposition, we get the following:
 
-$H = h(A) \\ \;\;\; = h(U \Lambda U^{-1})  \\ \;\;\; = U h(\Lambda ) U^{-1}$
+$H = h(A) = h(U \Lambda U^{-1}) = U h(\Lambda ) U^{-1}$
 
 Below shows code for constructing our filter based off the cylic graph $A_c$. We first define a step function that restarts every 4 samples (i.e. a sawtooth wave with period of 4 samples) and a cyclic graph that'll serve as the basis for our filter.
 
@@ -257,7 +256,7 @@ The result shows the resulting signal on the graph. Notice that, like the time-s
 
 ### DFT with graphs <a name="dft-graph"></a>
 
-Another interesting property of the cyclic graph with adjacency $A_c$ is that its eigenvalues are $e^{-j 2 \pi n / N}$ for $n=0, ..., N-1$. Additionally, the ordered eigenvector matrix $U^{-1}$ of $A_c$ is equivalent to the DFT matrix defined in [this section](#dft). Thus, we can construct a graph Fourier transform for a graph $\mathcal{G}$ and signal $x$ with the following equation: $\hat{x} = U^{-1} x$, where $U^{-1}$ is computed using the eigendecomposition $A = U \Lambda U^{-1}$. [[2]](#ref2)
+Another interesting property of the cyclic graph with adjacency $A_c$ is that its eigenvalues are $e^{-j 2 \pi n / N}$ for $n=0, ..., N-1$. Additionally, the ordered eigenvector matrix $U^{-1}$ of $A_c$ is equivalent to the DFT matrix defined in [this section](#dft). Thus, we can construct a graph Fourier transform for a graph $\mathcal{G}$ and signal $\mathbf{x}$ with the following equation: $\mathbf{\hat{x}} = U^{-1} \mathbf{x}$, where $U^{-1}$ is computed using the eigendecomposition $A = U \Lambda U^{-1}$. [[2]](#ref2)
 
 ```python
 # graph fourier transform
