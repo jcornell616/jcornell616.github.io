@@ -164,19 +164,15 @@ Additionally, the combinatorial graph Laplacian has the following properties:
 3. The smallest eigenvalue of $L$ is $0$, and the corresponding eigenvector is the vector of all ones
 4. $L$ has $N$ non-negative, real-valued eigenvalues such that $0 = \lambda_1 \leq \lambda_2 \leq ... \leq \lambda_N$
 
-Note that the diagonals are the entries to $D$ and the non-diagonals are the negative entries of $W$.
-
-![laplacian_com](/../assets/img/gsp/laplacian_com.png?raw=true)
+For some intuition on *why* the graph Laplacian is constucted the way it is, I refer the reader to [[5]](#ref5). The gist of the matter is we are motivated to define the laplacian $\nabla_{ij} f$ on graph $\mathcal{G}$ to be the weighted difference between nodes $i$ and $j$ i.e. $\nabla_{ij} f = w_{ij} (f(i) - f(j))^2$. The difference is squared so that the ordering of nodes does not matter. The Laplacian's eigenvalues, in both the Euclidean and graphical sense, holds important information abou the underlying structure of the system; that is, the Fourier basis.
 
 ### Symmetric Normalized Graph Laplacian <a name="sym-laplacian"></a>
 
-The normalized graph Laplacian has several definitions, but we will go with the one presented in [3], which differs from the one in [[2]](#ref2) in only that the
-eigenvalues in one are equal to one minus the eigenvalues in the other. The symmetric normalized graph Laplacian is constructed as follows:
-$L = D^{-1/2} W D^{-1/2}$.
+Additionaly, we can defined the *normalized* graph Laplacian which has the weights nromalized by the degree value [[5]](#ref5). The symmetric normalized graph Laplacian is constructed as follows: $\mathcal{L} = D^{-1/2} L D^{-1/2}$.
 
 ```python
 # compute symmetrical graph Laplacian
-L_symmetrical = np.diag(G.d ** (-1/2)) @ W @ np.diag(G.d ** (-1/2))
+L_symmetrical = np.diag(G.d ** (-1/2)) @ L_combinatorial @ np.diag(G.d ** (-1/2))
 
 # round to 3 s.f.
 L_symmetrical = np.around(L_symmetrical, 3)
@@ -186,10 +182,6 @@ Properties 2 and 4 still holds from the combinatorial graph Laplacian, with 1 an
 
 1. $\forall f \in \mathbb{R}^N$, the following holds true: $f^T L f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (\dfrac{f_i}{\sqrt{d_i}} - \dfrac{f_j}{\sqrt{d_j}})^2$
 3. The smallest eigenvalue of $L$ is $0$, and the corresponding eigenvector is the vector of all ones times $D^{-1/2}$
-
-The Laplacian matrix is shown below, note the differences between it and the previous Laplacian:
-
-![laplacian_sym](/../assets/img/gsp/laplacian_sym.png?raw=true)
 
 ## The Graph Laplacian: a spectral representation of graphs <a name="laplacian"></a>
 
@@ -417,3 +409,5 @@ IEEE signal processing magazine 30.3 (2013): 83-98. <a name="ref1"></a>
 <a name="ref3"></a>
 
 [4] Axler, Sheldon. Linear algebra done right. Springer Science & Business Media, 1997. <a name="ref4"></a>
+
+[5] Kun, Jeremy. “What’s up with the Graph Laplacian?” 20 Sept. 2016, https://samidavies.wordpress.com/2016/09/20/whats-up-with-the-graph-laplacian/. <a name="ref5"></a>
