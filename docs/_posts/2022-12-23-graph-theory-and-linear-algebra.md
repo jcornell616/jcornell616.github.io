@@ -344,7 +344,7 @@ for i in range(N) :
     D[i] = np.sum(W[i, :])
     
 # construct symmetric normalized graph Laplacian
-L_combinatorial = D - W
+L_combinatorial = np.diag(D) - W
 L = np.diag(D ** (-1/2)) @ L_combinatorial @ np.diag(D ** (-1/2))
 
 # eigen decomposition
