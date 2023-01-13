@@ -164,7 +164,7 @@ Additionally, the combinatorial graph Laplacian has the following properties:
 3. The smallest eigenvalue of $L$ is $0$, and the corresponding eigenvector is the vector of all ones
 4. $L$ has $N$ non-negative, real-valued eigenvalues such that $0 = \lambda_1 \leq \lambda_2 \leq ... \leq \lambda_N$
 
-For some intuition on *why* the graph Laplacian is constucted the way it is, I refer the reader to [[5]](#ref5). The gist of the matter is we are motivated to define the laplacian $\nabla_{ij} f$ on graph $\mathcal{G}$ to be the weighted difference between nodes $i$ and $j$ i.e. $\nabla_{ij} f = w_{ij} (f(i) - f(j))^2$. The difference is squared so that the ordering of nodes does not matter. The Laplacian's eigenvalues, in both the Euclidean and graphical sense, holds important information abou the underlying structure of the system; that is, the Fourier basis.
+For some intuition on *why* the graph Laplacian is constucted the way it is, I refer the reader to [[5]](#ref5). The gist of the matter is we are motivated to define the laplacian $\nabla_{ij} f$ on graph $\mathcal{G}$ to be the weighted difference between nodes $i$ and $j$ i.e. $\nabla_{ij} f = w_{ij} (f(i) - f(j))^2$. The difference is squared so that the ordering of nodes does not matter. The Laplacian's eigenvalues, in both the Euclidean and graphical sense, holds important information about the underlying structure of the system; that is, the Fourier basis.
 
 ### Symmetric Normalized Graph Laplacian <a name="sym-laplacian"></a>
 
@@ -344,7 +344,8 @@ for i in range(N) :
     D[i] = np.sum(W[i, :])
     
 # construct symmetric normalized graph Laplacian
-L = np.diag(D ** (-1/2)) @ W @ np.diag(D ** (-1/2))
+L_combinatorial = D - W
+L = np.diag(D ** (-1/2)) @ L_combinatorial @ np.diag(D ** (-1/2))
 
 # eigen decomposition
 w, v = np.linalg.eigh(L)
@@ -355,7 +356,7 @@ w = np.real(w[sorted_indices])
 v = np.real(v[:, sorted_indices.squeeze()])
 
 # get first k eigenvectors
-unnormalzied_Y = v[:, -k:]
+unnormalzied_Y = v[:, :k]
 
 # normalize 
 Y = np.zeros((N, k))
