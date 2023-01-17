@@ -16,3 +16,4 @@ A directory for all posts made on this site.
 
 - [Graph Theory and Linear Algebra](https://jcornell616.github.io/graph-theory-and-linear-algebra)
 - [Graph Signal Processing: An Introduction](https://jcornell616.github.io/Introduction-to-GSP)
+- [Graph Signal Processing: Spectral Methods](https://jcornell616.github.io/gsp-spectral-methods)
