@@ -46,6 +46,7 @@ from sklearn.datasets import make_circles
 from sklearn.neighbors import radius_neighbors_graph
 from sympy import *
 
+# for printing SymPy matrices
 init_printing(use_unicode=True)
 ```
 
@@ -75,6 +76,8 @@ G.plot_signal(G.U[:, 1])
 ```
 
 ![network](/../assets/img/gsp/network.png?raw=true)
+
+*Figure 1: Randomly generated sensor network*
 
 ### Converting non-graph data into graphs <a name="converting"></a>
 
@@ -113,9 +116,9 @@ for i in range(N) :
 W = np.around(W, 3)
 ```
 
-Below shows the matrix output of the graph we generated earlier. Note the symmetric property of the matrix.
-
 ![adjacency](/../assets/img/gsp/adjacency.png?raw=true)
+
+*Figure 2: Adjacency matrix for sensor network*
 
 ### Degree Matrix <a name="degree"></a>
 
@@ -135,9 +138,9 @@ for i in range(N) :
 D = np.around(D, 3)
 ```
 
-Note that the below matrix is non-zero only along its diagonal.
-
 ![diagonal](/../assets/img/gsp/diagonal.png?raw=true)
+
+*Figure 3: Degree matrix for sensor network*
 
 ### Incidence Matrix <a name="incidence"></a>
 
@@ -180,8 +183,8 @@ L_symmetrical = np.around(L_symmetrical, 3)
 
 Properties 2 and 4 still holds from the combinatorial graph Laplacian, with 1 and 3 having the following modifications:
 
-1. $\forall f \in \mathbb{R}^N$, the following holds true: $f^T L f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (\dfrac{f_i}{\sqrt{d_i}} - \dfrac{f_j}{\sqrt{d_j}})^2$
-3. The smallest eigenvalue of $L$ is $0$, and the corresponding eigenvector is the vector of all ones times $D^{-1/2}$
+1. $\forall f \in \mathbb{R}^N$, the following holds true: $f^T \mathcal{L} f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (\dfrac{f_i}{\sqrt{d_i}} - \dfrac{f_j}{\sqrt{d_j}})^2$
+3. The smallest eigenvalue of $\mathcal{L}$ is $0$, and the corresponding eigenvector is the vector of all ones times $D^{-1/2}$
 
 ## The Graph Laplacian: a spectral representation of graphs <a name="laplacian"></a>
 
@@ -229,6 +232,8 @@ plt.show()
 
 ![pca](/../assets/img/gsp/pca.png?raw=true)
 
+*Figure 4: Data with its principal components*
+
 With this in mind, we can use the eigendocomposition (that is, the retrieval of all eigenvalues and corresponding eigenvectors) of the graph Laplacian $L$ to
 give us important information about the underlying structure of our graph.
 
@@ -238,6 +243,8 @@ By taking the eigenvectors of $L$, we are effectively creating a manifold of our
 dataset, modeled by a large graph with nodes that have time-varying values.
 
 ![minnesota](/../assets/img/gsp/minnesota.png?raw=true)
+
+*Figure 5: Minnesota road network*
 
 As before, we construct $L$ from $W$ and $D$. We then take the eigendecomposition of $L$ to get us the spectral components of $\mathcal{G}$. By taking the first 3
 eigenvectors, we can visualize the spectral manifold in a 3D space.
@@ -272,6 +279,8 @@ manifold = v[:, :3]
 
 ![manifold](/../assets/img/gsp/manifold.png?raw=true)
 
+*Figure 6: 3D spectral manifold of Minnesota road network*
+
 Interestingly, this process bares striking reseblance to a widely used manifold learning algorithm, kernel PCA [[3]](#ref3). Kernel PCA is similar to PCA, but instead of
 using the eigenvectors of the covariance matrix for the principal components, uses the eigenvectors of a kernel matrix $K$ constructed from the input data. We will
 not go into detail on kernel methods here, but essentially the graph Laplacian $L$ is equivalent to constructing the kernel matrix $K$.
@@ -286,9 +295,9 @@ methods like k-means to be applied to graph data, but it also means difficult no
 as mimumum cut algorithms, but these are NP-hard, making spectral clustering an appetizing alternative [[2]](#ref2). Below is a spectral clustering algorithm presented in
 [[3]](#ref3), where given are the adjacenecy and degree matrices $W, D \in \mathbb{R}^{N \times N}$ and the clusters $k$:
 
-1. Compute symmetric normalized graph Laplacian $L = D^{-1/2} W D^{-1/2}$
+1. Compute symmetric normalized graph Laplacian $\mathcal{L} = D^{-1/2} L D^{-1/2}$
 
-2. Find the first $k$ largest eigenvectors $x_1, x_2, ..., x_k$ of $L$ and form $X = [x_1 x_2 ... x_k]$
+2. Find the first $k$ eigenvectors $x_1, x_2, ..., x_k$ of $\mathcal{L}$ and form $X = [x_1 x_2 ... x_k]$
 
 3. Normalize the eigenvectors $Y_{ij} = \dfrac{X_{ij}}{\sqrt{\sum_j X_{ij}^2}}$
 
@@ -325,7 +334,11 @@ plt.show()
 
 ![circles](/../assets/img/gsp/circles.png?raw=true)
 
+*Figure 7: True clusters for rings data*
+
 ![kmeans](/../assets/img/gsp/kmeans.png?raw=true)
+
+*Figure 8: Computed clusters using traditional k-means*
 
 In order to perform spectal clustering on this dataset, we first must convert it into a graph. A modified version of the k-nearest neighbors is used, where all
 points within a specified radius have their weights computed. The algorithm is then applied as specified above.
@@ -391,7 +404,11 @@ find an optimal performance of the algorithm. The bottom plot shows the resultin
 
 ![circles_manifold](/../assets/img/gsp/circles_manifold.png?raw=true)
 
+*Figure 9: 2D spectral manifold for rings data*
+
 ![spectral](/../assets/img/gsp/spectral.png?raw=true)
+
+*Figure 10: Computed clusters using spectral clustering*
 
 ## Conclusion <a name="conclusion"></a>
 

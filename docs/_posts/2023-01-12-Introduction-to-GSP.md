@@ -26,7 +26,7 @@ image: /gsp/ring-preprocessed.png
 
 ## Introduction <a name="introduction"></a>
 
-Graph Signal Processing (GSP) is an emerging field that generalizes DSP concepts to graphical models. Here, we review how linear algebra can be used to represent classical DSP operations, and then generalize these operations to signals on graphs. More specifically, we discuss GSP using graph adjacenecy matrices and how a cyclic graph is a graph-theoretic representation of the time domain common in DSP. For background on graph theory, I refer the reader to the previous page [Graph Theory and Linear Algebra](https://jcornell616.github.io/graph-theory-and-linear-algebra). The aforementioned article goes over why graphs are a useful representation for data (even data you may not initially think of as a graph), special matrices used to represent graphs, and an introduction to spectral graph theory.
+*Graph Signal Processing* (GSP) is an emerging field that generalizes DSP concepts to graphical models. Here, we review how linear algebra can be used to represent classical DSP operations, and then generalize these operations to signals on graphs. More specifically, we discuss GSP using graph adjacenecy matrices and how a cyclic graph is a graph-theoretic representation of the time domain common in DSP. For background on graph theory, I refer the reader to the previous page [Graph Theory and Linear Algebra](https://jcornell616.github.io/graph-theory-and-linear-algebra). The aforementioned article goes over why graphs are a useful representation for data (even data you may not initially think of as a graph), special matrices used to represent graphs, and an introduction to spectral graph theory.
 
 For this article, we will use PyGSP, a graphical signal processing library, to create and display graphs (Note that much of the functionallity appears to be different than the documentation). Additionally, SymPy will be used to display formatted matrices automatically. SciPy is used to compute the DFT.
 
@@ -75,11 +75,15 @@ The above code generates the following (truncated) vector and plot, respectively
 
 ![signal-vector](/../assets/img/gsp/signal-vector.png?raw=true)
 
+*Figure 1: Truncated vector representing signal*
+
 ![signal](/../assets/img/gsp/signal.png?raw=true)
+
+*Figure 2: Plot of signal*
 
 ### Time shift <a name="time-shift"></a>
 
-For the following operations/transforms, we will use the same setup of constructing a matrix $A \in \mathbb{C}^{N \times N}$ that transforms the signal into another representation or domain. For each operator/transform $A$, the output is computed by the simple matrix multiplication $\mathbf{y} = A \mathbf{x}$. The simplest operation one can perform on a signal is the time shift, which outputs the previous sample. This has a difference equation of $y_n = x_{n-z}$, where $z \in \mathbb{Z}$ is the number of samples to shift by [[1]](#ref1). Code to construct a time shift matrix is shown below.
+For the following operations/transforms, we will use the same setup of constructing a matrix $A \in \mathbb{C}^{N \times N}$ that transforms the signal into another representation or domain. For each operator/transform $A$, the output is computed by the simple matrix multiplication $\mathbf{y} = A \mathbf{x}$. The simplest operation one can perform on a signal is the *time shift*, which outputs the previous sample. This has a difference equation of $y_n = x_{n-z}$, where $z \in \mathbb{Z}$ is the number of samples to shift by [[1]](#ref1). Code to construct a time shift matrix is shown below.
 
 ```python
 # shift count
@@ -107,9 +111,13 @@ Below is a truncated version of the shift matrix. Note that this shift by $1$ is
 
 ![shift-matrix](/../assets/img/gsp/shift-matrix.png?raw=true)
 
+*Figure 3: Truncated version of shift matrix*
+
 As can be seen below, the output $y_n$ is a shifted version of $x_n$.
 
 ![shift-plot](/../assets/img/gsp/shift-plot.png?raw=true)
+
+*Figure 4: Plots of original and shifted signals*
 
 ### Filter <a name="filter"></a>
 
@@ -140,17 +148,19 @@ plt.title('Filtered Signal')
 plt.legend()
 plt.show()
 ```
-Below shows a truncated version of the filter matrix $H$. Filter matrices are Toeplitz, and causal filter matrices are lower trianglular; that is, the matrix has non-zero elements only at or below the diagonal.
+Below shows a truncated version of the filter matrix $H$. Filter matrices are *Toeplitz* (that is, constant along the diagonals), and causal filter matrices are lower trianglular (the matrix has non-zero elements only at or below the diagonal).
 
 ![filter-matrix](/../assets/img/gsp/filter-matrix.png?raw=true)
 
-Below shows the signal being run through the simple lowpass MA filter.
+*Figure 5: Truncated filter matrix*
 
 ![filter-plot](/../assets/img/gsp/filter-plot.png?raw=true)
 
+*Figure 6: Original and filtered signal*
+
 ### DFT <a name="dft"></a>
 
-The discrete Fourier transform (DFT) can likewise be represented as a matrix. Assuming an N-point DFT, the DFT matrix $W \in \mathbb{C}^{N \times N}$ has elements $w_{kl} = \dfrac{1}{\sqrt{N}} e^{-2 \pi j (k l) / N}$ where $k$ and $l$ are the rows and columns, respectively [[1]](#ref1). It is worth noting that $kl = kl \text{mod} N$ due to the circular convolution property of the DFT.
+The *discrete Fourier transform* (DFT) can likewise be represented as a matrix. Assuming an N-point DFT, the DFT matrix $W \in \mathbb{C}^{N \times N}$ has elements $w_{kl} = \dfrac{1}{\sqrt{N}} e^{-2 \pi j (k l) / N}$ where $k$ and $l$ are the rows and columns, respectively [[1]](#ref1). It is worth noting that $kl = kl \text{mod} N$ due to the *circular convolution property* of the DFT.
 
 ```python
 # construct DFT matrix
@@ -174,13 +184,15 @@ plt.title('DFT of Signal')
 plt.show()
 ```
 
-A truncated version of the matrix is shown below.
-
 ![dft-matrix](/../assets/img/gsp/dft-matrix.png?raw=true)
+
+*Figure 7: Truncated DFT matrix*
 
 As can be seen below, the resulting magnitude plots line up with the frequency contents of the original signal $\mathbf{x}$.
 
 ![dft-plot](/../assets/img/gsp/dft-plot.png?raw=true)
+
+*Figure 8: Frequencies of signal*
 
 ## Defining signal processing on graphs <a name="signals-graph"></a>
 
@@ -197,9 +209,13 @@ With this definiton of a graph signal in mind, we can define a shift in the grap
 
 ![graph-shift](/../assets/img/gsp/graph-shift.png?raw=true)
 
+*Figure 9: Graph Laplacian of cyclic shift graph*
+
 ![cyclic-graph](/../assets/img/gsp/cyclic-graph.png?raw=true)
 
-It is important to note the role shift-invariance plays with this definition of a graph shift, and that this is not the only definition for it. Shift-invariance is a generalization of time-invariance, as defined for all discrete systems. A system $y(n) = h(n) x(n)$ is shift-invariant if, given a shift $x(n-k)$, the shift in the output $y(n-k)$ is equivalent to that of the input. In matrix notation, this is equivalent to the expression $AH = HA$ for a given matrix $A$. [[2]](#ref2)
+*Figure 10: Displayed graph network of cyclic shift graph*
+
+It is important to note the role *shift-invariance* plays with this definition of a graph shift, and that this is not the only definition for it. Shift-invariance is a generalization of time-invariance, as defined for all discrete systems. A system $y(n) = h(n) x(n)$ is shift-invariant if, given a shift $x(n-k)$, the shift in the output $y(n-k)$ is equivalent to that of the input. In matrix notation, this is equivalent to the expression $AH = HA$ for a given matrix $A$. [[2]](#ref2)
 
 ### Filtering with graphs <a name="filter-graph"></a>
 
@@ -223,6 +239,8 @@ G.plot_signal(x_osc)
 ```
 
 ![ring-preprocessed](/../assets/img/gsp/ring-preprocessed.png?raw=true)
+
+*Figure 11: Sawtooth signal on cyclic graph*
 
 We will next define our MA filter of size $L=2$. The graph filter is constructed as a polynomial of the graph adjacency's eigenvalues as defined above. The graph filter matrix $H$ is then constructed from the modified eigenvalues.
 
@@ -252,7 +270,9 @@ G.plot_signal(y_osc)
 
 ![ring-postprocessed](/../assets/img/gsp/ring-postprocessed.png?raw=true)
 
-The result shows the resulting signal on the graph. Notice that, like the time-series MA filter, it "smears" the signal by filtering out high frequency contents.
+*Figure 12: Lowpass filtered signal on cyclic graph*
+
+The result shows the filtered signal on the graph. Notice that, like the time-series MA filter, it *smoothens* the signal by filtering out high frequency contents.
 
 ### DFT with graphs <a name="dft-graph"></a>
 
@@ -267,6 +287,8 @@ G.plot_signal(x_hat)
 ```
 
 ![ring-fourier](/../assets/img/gsp/ring-fourier.png?raw=true)
+
+*Figure 13: GFT of cyclic graph*
 
 The above code demonstrates the computation of the graph Fourier transform. Notice that the the highest magnitude node is the one corresponding to the fourth node down from the right-hand side, indicating a frequency of 4 samples (as defined before).
 
