@@ -24,7 +24,7 @@ image: /gsp/graph-filtered-lenna.png
 
 ## Introduction <a name="introduction"></a>
 
-[In the previous article](https://jcornell616.github.io/Introduction-to-GSP), we introduced the outlines of an emerging field known as graph signal processing (GSP) by presenting it as a natural extension of classical signal processing techniques onto the domain of graphs. More specifically, we discussed GSP techniques using the graph adjacency, that can be applied to both directed and non-directed graphs. Here, we present GSP methods based off the graph Laplacian which--though it can only be applied to non-directed graphs--offers better overall performance. We will discuss how frequency is intepreted in the graph domain, the motivation for using the graph Laplacian for the basis of signal processing on graphs, and show how filters can be designed for graphs (with an application-driven example).
+[In the previous article](https://jcornell616.github.io/Introduction-to-GSP), we introduced the outlines of an emerging field known as graph signal processing (GSP) by presenting it as a natural extension of classical signal processing techniques onto the domain of graphs. More specifically, we discussed GSP techniques using the graph adjacency, that can be applied to both directed and undirected graphs. Here, we present GSP methods based off the graph Laplacian which--though it can only be applied to undirected graphs--offers better overall performance. We will discuss how frequency is intepreted in the graph domain, the motivation for using the graph Laplacian for the basis of signal processing on graphs, and show how filters can be designed for graphs (with an application-driven example).
 
 For this article, CV2, a computer vision python library, to load and process images. Additionally, SymPy will be used to display formatted matrices automatically.
 
@@ -46,13 +46,14 @@ Before discussing signal procesing techniques using the graph Laplacian, we must
 
 ### Graph smoothness <a name="graph-smoothness"></a>
 
-[In the first article](https://jcornell616.github.io/graph-theory-and-linear-algebra), it was shown that for a function $f \in \mathbb{R}^N$ and combinatorial graph Laplacian $L$, the following equation holds true: $f^T L f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (f_i - f_j)^2$. Similarly, for the symmetric normalized Laplacian $\mathcal{L}$, the following holds: $f^T \mathcal{L} f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (\dfrac{f_i}{\sqrt{d_i}} - \dfrac{f_j}{\sqrt{d_j}})^2$. Both of these are a measure of *smoothness* of the graph, which we will denote as $||f||_L$ for a function $f$. Interestingly, if we let $f$ equal the eigenvector of the graph Laplacian $u_k$, the smoothness $||u_k||_L = u_k^T L u_k$ gives us the coresponding eigenvalue $\lambda_k$. From this, we can conclude the eigenvalues of the graph Laplacian are a measure of smoothness, or the amount of oscillation on the graph. This gives us a fine graphical analog of frequency. To be more specific, given an eigenvalue $\lambda_k$, small $k$'s measure low frequency components while large $k$'s give higher frequency components. [[1]](#ref1)
+[In the first article](https://jcornell616.github.io/graph-theory-and-linear-algebra), it was shown that for a function $f \in \mathbb{R}^N$ and combinatorial graph Laplacian $L$, the following equation holds true: $f^T L f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (f_i - f_j)^2$. Similarly, for the symmetric normalized Laplacian $\mathcal{L}$, the following holds: $f^T \mathcal{L} f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (\dfrac{f_i}{\sqrt{d_i}} - \dfrac{f_j}{\sqrt{d_j}})^2$. Both of these are a measure of *smoothness* of the graph, which we will denote as $||f||_L$ for a function $f$. Interestingly, if we let $f$ equal the eigenvector of the graph Laplacian $u_k$, the smoothness $|| u_k ||_L = u_k^T L u_k$ gives us the coresponding eigenvalue $\lambda_k$. From this, we can conclude the eigenvalues of the graph Laplacian are a measure of smoothness, or the amount of oscillation on the graph. This gives us a fine graphical analog of frequency. To be more specific, given an eigenvalue $\lambda_k$, small $k$'s measure low frequency components while large $k$'s give higher frequency components. [[1]](#ref1)
 
 ### Zero-crossings <a name="zero-crossing"></a>
 
 Another useful measure for frequency of a signal on a graph is that of the number of *zero-crossings*, or the number of positive-valued nodes connected to negative-valued nodes. Mathematically, the set of zero-crossings of a signal $f$ on a graph $\mathcal{G} = (\mathcal{V}, \mathcal{E}, W)$ is given as $\mathcal{Z}_{\mathcal{G}}(f) := \{ (i, j) \in \mathcal{E}: f(i) f(j) < 0 \}$. [[2]](#ref2)
 
 ![lenna-eigens](/../assets/img/gsp/lenna-eigens.png?raw=true)
+
 *Figure 1: The ordered set of eigevalues is a representation of zero-crossings*
 
 ## GSP using the Laplacian <a name="gsp-laplacian"></a>
@@ -92,9 +93,11 @@ plt.title('Noisy Lenna')
 ```
 
 ![lenna](/../assets/img/gsp/lenna.png?raw=true)
+
 *Figure 2: The original "Lenna" picture*
 
 ![noisy-lenna](/../assets/img/gsp/noisy-lenna.png?raw=true)
+
 *Figure 3: A significantly distorted version of the "Lenna" picture*
 
 ### Image-to-graph <a name="image-to-graph"></a>
@@ -128,15 +131,16 @@ L = np.diag(D) - W
 ```
 
 ![image-adjacency](/../assets/img/gsp/image-adjacency.png?raw=true)
+
 *Figure 4: An adjacency matrix for a $4 \times 4$ image*
 
 ### Graph Filter Design <a name="filter-design"></a>
 
 We will first introduce our graph filter design problem as an optimization problem, and then compare the result to its temporal cousin. The problem of estimating our original denoised signal $\mathbf{x}$ from our observed noisy signal $\mathbf{y}$ over the graph represented by the graph Laplacian $L$ is as follows:
 
-$\textrm{arg min}_x ||\mathbf{x} - \mathbf{y}||_2^2 + \gamma ||\mathbf{x}||_L$ [[2]](#ref2)
+$\textrm{arg min}_x || \mathbf{x} - \mathbf{y} ||_2^2 + \gamma || \mathbf{x} ||_L$ [[2]](#ref2)
 
-In a nutshell, the equation wants to minimize the squared error between $\mathbf{x}$ and $\mathbf{y}$ with a regularizing term $||\mathbf{x}||_L = \mathbf{x}^T L \mathbf{x}$ of the graph signal's smoothness [[2]](#ref2). Larger values of $\gamma$ result in a smoother signal, and *vice versa*. The solution to the above minimization problem is given below:
+In a nutshell, the equation wants to minimize the squared error between $\mathbf{x}$ and $\mathbf{y}$ with a regularizing term $|| \mathbf{x} ||_L = \mathbf{x}^T L \mathbf{x}$ of the graph signal's smoothness [[2]](#ref2). Larger values of $\gamma$ result in a smoother signal, and *vice versa*. The solution to the above minimization problem is given below:
 
 $\mathbf{x} = h(\lambda) \mathbf{y}$, where $h(\lambda) = \dfrac{1}{1 + \gamma \lambda}$ [[2]](#ref2)
 
@@ -163,6 +167,7 @@ plt.title('Graph Filtered Lenna')
 ```
 
 ![graph-filtered-lenna](/../assets/img/gsp/graph-filtered-lenna.png?raw=true)
+
 *Figure 5: graph filtered image*
 
 For comparison, here is the Gaussian filtered image:
@@ -178,6 +183,7 @@ plt.title('Gaussian Filtered Lenna')
 ```
 
 ![gaussian-filtered-lenna](/../assets/img/gsp/gaussian-filtered-lenna.png?raw=true)
+
 *Figure 6: Gaussian filtered image*
 
 ### Filter comparison <a name="filter-comp"></a>
