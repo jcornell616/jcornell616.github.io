@@ -33,7 +33,7 @@ permalink: /resume
 - Performed timing analysis on device running on RTOS to ensure solution was viable
 
 **Applied Machine Learning Teaching Assistant | University of Florida**
-:   *August 2022-Present*
+:   *August 2022-December 2022*
 
 - Demonstrated practical machine learning knowledge for students
 
@@ -58,23 +58,26 @@ permalink: /resume
 ## Projects
 -----------
 
-**"Theremania" - Theremin Vocoder**
+[**"Theremania" - Theremin Vocoder**](https://github.com/jcornell616/Theremax)
 
 - Worked with partner to design, implement, and test voice-to-theremin vocoder
 - Implemented pitch detection, ADC driver, SPI driver, and MIDI protocol on FPGA
 - Developed electronic circuity including power supply, pre-amps, and RF theremin circuit
 
-**Real-Time Granular Synthesizer**
+[**Spectral Clustering for Identifying Large Scale Neuron Connectivity**](https://github.com/jcornell616/spectral-clustering-for-identifying-large-scale-neuron-connectivity)
+
+- Developed spectral clustering algorithm to cluster simulated neurons based on their connectivity
+
+[**Real-Time Granular Synthesizer**](https://github.com/jcornell616/Real-Time-Granular-Synthesizer)
 
 - User-configurable device implemented on embedded system that performs granular synthesis on audio in real-time
 
-
-**Natural Image Classifier**
+[**Natural Image Classifier**](https://github.com/jcornell616/Real-Time-Granular-Synthesizer)
 
 - Worked with team to design and train a convolutional neural network (CNN) with 91% accuracy to classify images such as trees, roads, bridges, etc.
 using UF’s HiPerGator supercomputer
 
-**FPGA Convolution Accelerator**
+[**FPGA Convolution Accelerator**](https://github.com/jcornell616/reconfigurable-computing/tree/main/FinalProject)
 	 	 	 
 - Worked with team member to design a pipelined convolution accelerator in VHDL to speedup convolution operation by up to 24x
 
@@ -82,7 +85,7 @@ using UF’s HiPerGator supercomputer
 
 - Built from scratch analog distortion effects pedals for guitar on perfboard, including layout, soldering, testing with oscilloscope, and enclosure construction
 
-**MIPS Processor**
+[**MIPS Processor**](https://github.com/jcornell616/MIPS-Processor)
 	 	 	 	 
 - Designed and implemented a 32-bit MIPS processor using VHDL on an FPGA
 
@@ -129,11 +132,23 @@ using UF’s HiPerGator supercomputer
 
 * Machine Learning for Time-Series
 
+* Neuro-AI
+
 * Neural Signals, Systems, and Technology
+
+* Stochastic Control
 
 * Stochastic Methods
 
+* Spectrum Sensing and Sparse Signal Recovery
+
 * Estimation and Detection Theory
+
+* Reconfigurable Computing
+
+* VLSI Circuits
+
+* Laser Theory & Design
 
 * ECE Design I & II
 
@@ -143,13 +158,9 @@ using UF’s HiPerGator supercomputer
 
 * Foundations of Digital Signal Processing
 
-* Reconfigurable Computing
-
 * Linear Control Systems
 
 * Autonomous Robots
-
-* VLSI Circuits
 
 * Digital Design
 
