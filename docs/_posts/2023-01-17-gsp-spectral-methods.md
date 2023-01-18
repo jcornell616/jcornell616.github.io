@@ -46,7 +46,7 @@ Before discussing signal procesing techniques using the graph Laplacian, we must
 
 ### Graph smoothness <a name="graph-smoothness"></a>
 
-[In the first article](https://jcornell616.github.io/graph-theory-and-linear-algebra), it was shown that for a function $f \in \mathbb{R}^N$ and combinatorial graph Laplacian $L$, the following equation holds true: $f^T L f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (f_i - f_j)^2$. Similarly, for the symmetric normalized Laplacian $\mathcal{L}$, the following holds: $f^T \mathcal{L} f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (\dfrac{f_i}{\sqrt{d_i}} - \dfrac{f_j}{\sqrt{d_j}})^2$. Both of these are a measure of *smoothness* of the graph, which we will denote as $\| f \|_L$ for a function $f$. Interestingly, if we let $f$ equal the eigenvector of the graph Laplacian $u_k$, the smoothness $\| u_k \|_L = u_k^T L u_k$ gives us the coresponding eigenvalue $\lambda_k$. From this, we can conclude the eigenvalues of the graph Laplacian are a measure of smoothness, or the amount of oscillation on the graph. This gives us a fine graphical analog of frequency. To be more specific, given an eigenvalue $\lambda_k$, small $k$'s measure low frequency components while large $k$'s give higher frequency components. [[1]](#ref1)
+[In the first article](https://jcornell616.github.io/graph-theory-and-linear-algebra), it was shown that for a function $f \in \mathbb{R}^N$ and combinatorial graph Laplacian $L$, the following equation holds true: $f^T L f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (f_i - f_j)^2$. Similarly, for the symmetric normalized Laplacian $\mathcal{L}$, the following holds: $f^T \mathcal{L} f = \dfrac{1}{2} \sum_{i,j=1}^N w_{ij} (\dfrac{f_i}{\sqrt{d_i}} - \dfrac{f_j}{\sqrt{d_j}})^2$. Both of these are a measure of *smoothness* of the graph, which we will denote as $\vert f \vert_L$ for a function $f$. Interestingly, if we let $f$ equal the eigenvector of the graph Laplacian $u_k$, the smoothness $\vert u_k \vert_L = u_k^T L u_k$ gives us the coresponding eigenvalue $\lambda_k$. From this, we can conclude the eigenvalues of the graph Laplacian are a measure of smoothness, or the amount of oscillation on the graph. This gives us a fine graphical analog of frequency. To be more specific, given an eigenvalue $\lambda_k$, small $k$'s measure low frequency components while large $k$'s give higher frequency components. [[1]](#ref1)
 
 ### Zero-crossings <a name="zero-crossing"></a>
 
@@ -138,10 +138,10 @@ L = np.diag(D) - W
 
 We will first introduce our graph filter design problem as an optimization problem, and then compare the result to its temporal cousin. The problem of estimating our original denoised signal $\mathbf{x}$ from our observed noisy signal $\mathbf{y}$ over the graph represented by the graph Laplacian $L$ is as follows:
 
-$\textrm{arg min}_x \| \mathbf{x} - \mathbf{y} \|_2^2 + \gamma \| \mathbf{x} \|_L$ [[2]](#ref2)
+$\textrm{arg min}_x \vert \mathbf{x} - \mathbf{y} \vert_2^2 + \gamma \vert \mathbf{x} \vert_L$ [[2]](#ref2)
 
 In a nutshell, the equation wants to minimize the squared error between $\mathbf{x}$ and $\mathbf{y}$ with a regularizing term
-$\| \mathbf{x} \|_L = \mathbf{x}^T L \mathbf{x}$ of the graph signal's smoothness [[2]](#ref2). Larger values of $\gamma$ result in a smoother signal, and *vice versa*. The solution to the above minimization problem is given below:
+$\vert \mathbf{x} \vert_L = \mathbf{x}^T L \mathbf{x}$ of the graph signal's smoothness [[2]](#ref2). Larger values of $\gamma$ result in a smoother signal, and *vice versa*. The solution to the above minimization problem is given below:
 
 $\mathbf{x} = h(\lambda) \mathbf{y}$, where $h(\lambda) = \dfrac{1}{1 + \gamma \lambda}$ [[2]](#ref2)
 
