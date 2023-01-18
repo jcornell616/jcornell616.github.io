@@ -4,9 +4,9 @@ title: Resume/CV
 permalink: /resume
 ---
 
-## Contact
+[**About Me**](https://jcornell616.github.io/about.html)
 
-[Click here](https://jcornell616.github.io/contact.html)
+[**Contact**](https://jcornell616.github.io/contact.html)
 
 ## Education
 ------------
