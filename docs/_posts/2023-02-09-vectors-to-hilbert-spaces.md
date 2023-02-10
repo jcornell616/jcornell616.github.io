@@ -61,7 +61,7 @@ We start by defining two vectors $\mathbf{a} = [a_0 \; a_1]^T$ and $\mathbf{b} =
 6. Multiplicative identity: For every $\mathbf{x}$ in $V$ , $1 · \mathbf{x} = \mathbf{x}$.
 
 One example we will see is the vector space of complex-valued finite-dimensional vectors $\mathbb{C}^N$, which is defined as
-$\mathbb{C}^N =$ $\bigl\{ \mathbf{x}$ $= [x_0 \; x_1 \; ... \; x_{N-1} ]^T$ $\;\vert\; x_n \in \mathbb{C},$ $n \in \{ 0, 1, ..., N-1 \} \bigr\}$. This basically says that $\mathbb{C}^N$ is defined as the set ($\{ \}$) of N-dimensional vectors ($\mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T$) such that ($\;\vert\;$) every element of the vector is a complex-valued scalar ($x_n \in \mathbb{C}$) with $n$ being the set of integers from $0$ to $N-1$ ($n \in \{ 0, 1, ..., N-1 \}$). You may begin to see why we prefer to use mathematical notation, as it is much less verbose! Note that the vector space of real-valued finite-dimensional vectors $\mathbb{R}^N$ is basically the same. [[1]](#ref1)
+$\mathbb{C}^N = \{ \mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T \;\vert\; x_n \in \mathbb{C}, n \in \{ 0, 1, ..., N-1 \} \}$. This basically says that $\mathbb{C}^N$ is defined as the set ($\{ \}$) of N-dimensional vectors ($\mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T$) such that ($\;\vert\;$) every element of the vector is a complex-valued scalar ($x_n \in \mathbb{C}$) with $n$ being the set of integers from $0$ to $N-1$ ($n \in \{ 0, 1, ..., N-1 \}$). You may begin to see why we prefer to use mathematical notation, as it is much less verbose! Note that the vector space of real-valued finite-dimensional vectors $\mathbb{R}^N$ is basically the same. [[1]](#ref1)
 
 Some other terms to familiarize yourself with: the vector space $\mathbb{C}^N$ is an example of a **sequence**, where there are discrete sets of values. A vector space with a continuous set of values is called a **function**. One such example is  the complex-valued functions over the reals, $\mathbb{C}^\mathbb{R}$, which is defined as $\mathbb{C}^\mathbb{R} = \bigl\{ x \; \vert \; x(t) \in \mathbb{C}, t \in \mathbb{R} \bigr\}$. Again, this is read as the vector space $\mathbb{C}^\mathbb{R}$ is the set ($\{ \}$) of functions ($x$) such that ($\;\vert\;$) every element of the vector is complex-valued ($x(t) \in \mathbb{C}$) and $t$ is a member of the real-valued scalars ($t \in \mathbb{R}$). [[1]](#ref1)
 
@@ -112,8 +112,7 @@ plt.show()
 
 We will next want to define a notion of similarity between our two vectors $\mathbf{a} = [a_0 \; a_1]^T$ and $\mathbf{b} = [b_0 \; b_1]^T$. We will define a function called the **inner product** $\alpha = \langle \mathbf{a}, \mathbf{b} \rangle$ to measure their similarity such that $\alpha = a_0 b_0 + a_1 b_1$. More precisely, inner products give a notion of geometry, length, and direction for any arbitrary vector space. The astute among you may notice that this is simply the **dot product** $\alpha = \mathbf{b}^T \mathbf{a}$, and this is indeed known as the **standard inner product** on $\mathbb{R}^N$, or the **Euclidean inner product**, but there exists other definitions of an inner product. [[2]](#ref2)
 
-> **INNER PRODUCT**
->
+**INNER PRODUCT**
 > An inner product on a vector space $V$ over $\mathbb{C}$ (or $\mathbb{R}$) is a complex-valued (or real-valued) function $\langle \cdot, \cdot \rangle$ defined on $V \times V$, with the following properties for any $\mathbf{x}, \mathbf{y}, \mathbf{z} ∈ V$ and $α ∈ \mathbb{C}$ (or $\mathbb{R}$):
 >
 >1. Distributivity: $\langle \mathbf{x} + \mathbf{y}, \mathbf{z} \rangle = \langle \mathbf{x}, \mathbf{z} \rangle + \langle \mathbf{y}, \mathbf{z} \rangle$
