@@ -19,5 +19,6 @@ A directory for all posts made on this site.
 - [Graph Signal Processing: Spectral Methods](https://jcornell616.github.io/gsp-spectral-methods)
 
 ## Math for Signal Processing and Machine Learning
+--------------------------------------------------
 
 - [From Vectors to Hilbert Spaces](https://jcornell616.github.io/vectors-to-hilbert-spaces)
