@@ -63,26 +63,22 @@ We start by defining two vectors $\mathbf{a} = [a_0 \; a_1]^T$ and $\mathbf{b} =
 One example we will see is the vector space of complex-valued finite-dimensional vectors $\mathbb{C}^N$, which is defined as
 $\mathbb{C}^N = \bigl\{ \mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T \;\vert\; x_n \in \mathbb{C}, n \in \{ 0, 1, ..., N-1 \} \bigr\}$. This basically says that $\mathbb{C}^N$ is defined as the set ($\{ \}$) of N-dimensional vectors ($\mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T$) such that ($\;\vert\;$) every element of the vector is a complex-valued scalar ($x_n \in \mathbb{C}$) with $n$ being the set of integers from $0$ to $N-1$ ($n \in \{ 0, 1, ..., N-1 \}$). You may begin to see why we prefer to use mathematical notation, as it is much less verbose! Note that the vector space of real-valued finite-dimensional vectors $\mathbb{R}^N$ is basically the same. [[1]](#ref1)
 
-Some other terms to familiarize yourself with: the vector space $\mathbb{C}^N$ is an example of a **sequence**, where there are discrete sets of values. A vector space with a continuous set of values is called a **function**. One such example is  the complex-valued functions over the reals, $\mathbb{C}^\mathbb{R}$, which is defined as $\mathbb{C}^\mathbb{R}$ $= \bigl\{ x \;\vert\; x(t) \in \mathbb{C}, t \in \mathbb{R} \bigr\}$. Again, this is read as the vector space $\mathbb{C}^\mathbb{R}$ is the set ($\{ \}$) of functions ($x$) such that ($\;\vert\;$) every element of the vector is complex-valued ($x(t) \in \mathbb{C}$) and $t$ is a member of the real-valued scalars ($t \in \mathbb{R}$). [[1]](#ref1)
+Some other terms to familiarize yourself with: the vector space $\mathbb{C}^N$ is an example of a **sequence**, where there are discrete sets of values. A vector space with a continuous set of values is called a **function**. One such example is  the complex-valued functions over the reals, $\mathbb{C}^\mathbb{R}$, which is defined as $\mathbb{C}^\mathbb{R} = \bigl\{ x $ $ \;\vert\; x(t) \in \mathbb{C}, t \in \mathbb{R} \bigr\}$. Again, this is read as the vector space $\mathbb{C}^\mathbb{R}$ is the set ($\{ \}$) of functions ($x$) such that ($\;\vert\;$) every element of the vector is complex-valued ($x(t) \in \mathbb{C}$) and $t$ is a member of the real-valued scalars ($t \in \mathbb{R}$). [[1]](#ref1)
 
 A couple of other useful definitons relavant to vector spaces:
 
-> **SUBSPACE**
->
+**SUBSPACE**
 > A nonempty subset $S$ of a vector space $V$ is a subspace when it is closed (to be defined later...) under the operations of vector addition and scalar multiplication:
 >
 >1. For all $\mathbf{x}$ and $\mathbf{y}$ in $S$, $\mathbf{x} + \mathbf{y}$ is in $S$
 2. For all $\mathbf{x}$ in $S$ and $α$ in $\mathbb{C}$ (or $\mathbb{R}$), $α \mathbf{x}$ is in $S$
 
-> **SPAN**
->
+**SPAN**
 > The span of a set of vectors $S$ is the set of all finite linear combinations of vectors in $S$:
 >
 > $\text{span}(S) = \bigl\{ \sum_{k=0}^{N-1} \alpha_k \varphi_k \;\vert\; \alpha_k \in \mathbb{C} \; \text{or} \; \mathbb{R}, \varphi_k \in S \bigr\}$
 
-
-> **LINEAR INDEPENDENCE**
->
+**LINEAR INDEPENDENCE**
 > The set of vectors $\bigl\{ \varphi_0, \varphi_1, ..., \varphi_{N-1} \bigr\}$ is called linearly independent when $\sum_{k=0}^{N-1} \alpha_k \varphi_k = \mathbf{0}$ is true only if $\alpha_k = 0$ for all $k$. Otherwise, the set is linearly dependent. An infinite set of vectors is called linearly independent when every finite subset is linearly independent.
 
 The below code shows how we can define vectors using numpy, as well as give a visual for what addition in a vector space looks like. Here, we work in the vector space $\mathbb{R}^2$ for ease of visualization, but numpy supports any arbitrary dimensioned vector space.
