@@ -274,7 +274,7 @@ Another commonly seen example of a Hilbert space is the set of functions whose s
 
 | Space | Explanation |
 | :---- | :---------- |
-| $\mathcal{Q}^N$ | Sequences of rational vectors may converge to irrational vectors, thus is not complete |
+| $\mathbb{Q}^N$ | Sequences of rational vectors may converge to irrational vectors, thus is not complete |
 | $C(\left[a, b \right])$ | The set of continuous functions in a given interval $[a, b]$ with Euclidean inner product is not complete |
 
 ### Normed vector spaces <a name="ex-normed"></a>
