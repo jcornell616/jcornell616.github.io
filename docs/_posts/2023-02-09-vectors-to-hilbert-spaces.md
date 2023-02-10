@@ -61,7 +61,7 @@ We start by defining two vectors $\mathbf{a} = [a_0 \; a_1]^T$ and $\mathbf{b} =
 6. Multiplicative identity: For every $\mathbf{x}$ in $V$ , $1 · \mathbf{x} = \mathbf{x}$.
 
 One example we will see is the vector space of complex-valued finite-dimensional vectors $\mathbb{C}^N$, which is defined as
-$\mathbb{C}^N = \{ \mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T \;\vert\; x_n \in \mathbb{C}, n \in \{ 0, 1, ..., N-1 \} \}$. This basically says that $\mathbb{C}^N$ is defined as the set ($\{ \}$) of N-dimensional vectors ($\mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T$) such that ($\;\vert\;$) every element of the vector is a complex-valued scalar ($x_n \in \mathbb{C}$) with $n$ being the set of integers from $0$ to $N-1$ ($n \in \{ 0, 1, ..., N-1 \}$). You may begin to see why we prefer to use mathematical notation, as it is much less verbose! Note that the vector space of real-valued finite-dimensional vectors $\mathbb{R}^N$ is basically the same. [[1]](#ref1)
+$\mathbb{C}^N = { \mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T \;\vert\; x_n \in \mathbb{C}, n \in { 0, 1, ..., N-1 } }$. This basically says that $\mathbb{C}^N$ is defined as the set ($\{ \}$) of N-dimensional vectors ($\mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T$) such that ($\;\vert\;$) every element of the vector is a complex-valued scalar ($x_n \in \mathbb{C}$) with $n$ being the set of integers from $0$ to $N-1$ ($n \in \{ 0, 1, ..., N-1 \}$). You may begin to see why we prefer to use mathematical notation, as it is much less verbose! Note that the vector space of real-valued finite-dimensional vectors $\mathbb{R}^N$ is basically the same. [[1]](#ref1)
 
 Some other terms to familiarize yourself with: the vector space $\mathbb{C}^N$ is an example of a **sequence**, where there are discrete sets of values. A vector space with a continuous set of values is called a **function**. One such example is  the complex-valued functions over the reals, $\mathbb{C}^\mathbb{R}$, which is defined as $\mathbb{C}^\mathbb{R} = \bigl\{ x \; \vert \; x(t) \in \mathbb{C}, t \in \mathbb{R} \bigr\}$. Again, this is read as the vector space $\mathbb{C}^\mathbb{R}$ is the set ($\{ \}$) of functions ($x$) such that ($\;\vert\;$) every element of the vector is complex-valued ($x(t) \in \mathbb{C}$) and $t$ is a member of the real-valued scalars ($t \in \mathbb{R}$). [[1]](#ref1)
 
@@ -150,8 +150,7 @@ print('||a|| =', norm)
 
 Now one may ask what we get when we take the inner product of a vector $\mathbf{x}$ with itself. This is known as a norm **induced** by an inner product such that $\vert\vert \mathbf{x} \vert\vert = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$, and is a measure of the length of the vector. For a vector $\mathbf{x} = [x_0 \; x_1]^T$ and Euclidean inner product, its induced norm is thus defined as $\vert\vert \mathbf{x} \vert\vert = \sqrt{x_0^2 + x_1^2}$. Seem familiar? [[1]](#ref1)
 
-> **NORM**
->
+**NORM**
 > A norm on a vector space $\mathcal{V}$ over $\mathbb{C}$ (or $\mathbb{R}$) is a real-valued function $\vert\vert \cdot \vert\vert$ defined on $\mathcal{V}$, with the following properties for any $\mathbf{x}, \mathbf{y} ∈ V$ and $α ∈ \mathbb{C}$ (or $\mathbb{R}$):
 >
 >1. Positive definiteness: $\vert\vert \mathbf{x} \vert\vert \geq 0$, and $\vert\vert \mathbf{x} \vert\vert = 0$ if and only if $\mathbf{x} = \mathbf{0}$
