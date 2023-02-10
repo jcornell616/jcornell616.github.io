@@ -223,7 +223,7 @@ Before getting to Banach and Hilbert spaces, we have to define some important te
 Cauchy sequences are a formalization of the concept of convergence. One counter example--that is, a sequence that convergences to a value not within its space--is the sequence $x_k = \sum_{n=0}^\infty \dfrac{1}{n!}$. This sequence consists of values in the set of rational numbers $\mathbb{Q}$, but converges to the irrational number $e$. Thus, this sequence is not **complete**. We can make it complete, however, by instead defining this sequence in the set of real numbers $\mathbb{R}$, of which both the irrational $e$ and the rational values $1 / n!$ are members of. [[1]](#ref1)
 
 **COMPLETENESS**
-> A normed vector space $\mathcal{V}$ is said to be complete when every Cauchy sequence in $\mathcal{V}$ converges to a vector in $\mathcal{V}$
+> A normed vector space $V$ is said to be complete when every Cauchy sequence in $V$ converges to a vector in $V$
 
 ### Banach and Hilbert spaces <a name="banach-hilbert"></a>
 
