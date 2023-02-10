@@ -63,7 +63,7 @@ We start by defining two vectors $\mathbf{a} = [a_0 \; a_1]^T$ and $\mathbf{b} =
 One example we will see is the vector space of complex-valued finite-dimensional vectors $\mathbb{C}^N$, which is defined as
 $\mathbb{C}^N = \\{ \mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T \;\vert\; x_n \in \mathbb{C}, n \in \\{ 0, 1, ..., N-1 \\} \\}$. This basically says that $\mathbb{C}^N$ is defined as the set ($\{ \}$) of N-dimensional vectors ($\mathbf{x} = [x_0 \; x_1 \; ... \; x_{N-1} ]^T$) such that ($\;\vert\;$) every element of the vector is a complex-valued scalar ($x_n \in \mathbb{C}$) with $n$ being the set of integers from $0$ to $N-1$ ($n \in \{ 0, 1, ..., N-1 \}$). You may begin to see why we prefer to use mathematical notation, as it is much less verbose! Note that the vector space of real-valued finite-dimensional vectors $\mathbb{R}^N$ is basically the same. [[1]](#ref1)
 
-Some other terms to familiarize yourself with: the vector space $\mathbb{C}^N$ is an example of a **sequence**, where there are discrete sets of values. A vector space with a continuous set of values is called a **function**. One such example is  the complex-valued functions over the reals, $\mathbb{C}^\mathbb{R}$, which is defined as $\mathbb{C}^\mathbb{R} = \bigl\{ x \; \vert \; x(t) \in \mathbb{C}, t \in \mathbb{R} \bigr\}$. Again, this is read as the vector space $\mathbb{C}^\mathbb{R}$ is the set ($\{ \}$) of functions ($x$) such that ($\;\vert\;$) every element of the vector is complex-valued ($x(t) \in \mathbb{C}$) and $t$ is a member of the real-valued scalars ($t \in \mathbb{R}$). [[1]](#ref1)
+Some other terms to familiarize yourself with: the vector space $\mathbb{C}^N$ is an example of a **sequence**, where there are discrete sets of values. A vector space with a continuous set of values is called a **function**. One such example is  the complex-valued functions over the reals, $\mathbb{C}^\mathbb{R}$, which is defined as $\mathbb{C}^\mathbb{R} = \\{ x \; \vert \; x(t) \in \mathbb{C}, t \in \mathbb{R} \\}$. Again, this is read as the vector space $\mathbb{C}^\mathbb{R}$ is the set ($\{ \}$) of functions ($x$) such that ($\;\vert\;$) every element of the vector is complex-valued ($x(t) \in \mathbb{C}$) and $t$ is a member of the real-valued scalars ($t \in \mathbb{R}$). [[1]](#ref1)
 
 A couple of other useful definitons relavant to vector spaces:
 
@@ -76,10 +76,10 @@ A couple of other useful definitons relavant to vector spaces:
 **SPAN**
 > The span of a set of vectors $S$ is the set of all finite linear combinations of vectors in $S$:
 >
-> $\text{span}(S) = \bigl\{ \sum_{k=0}^{N-1} \alpha_k \varphi_k \;\vert\; \alpha_k \in \mathbb{C} \; \text{or} \; \mathbb{R}, \varphi_k \in S \bigr\}$
+> $\text{span}(S) = \\{ \sum_{k=0}^{N-1} \alpha_k \varphi_k \;\vert\; \alpha_k \in \mathbb{C} \; \text{or} \; \mathbb{R}, \varphi_k \in S \\}$
 
 **LINEAR INDEPENDENCE**
-> The set of vectors $\bigl\{ \varphi_0, \varphi_1, ..., \varphi_{N-1} \bigr\}$ is called linearly independent when $\sum_{k=0}^{N-1} \alpha_k \varphi_k = \mathbf{0}$ is true only if $\alpha_k = 0$ for all $k$. Otherwise, the set is linearly dependent. An infinite set of vectors is called linearly independent when every finite subset is linearly independent.
+> The set of vectors $\\{ \varphi_0, \varphi_1, ..., \varphi_{N-1} \\}$ is called linearly independent when $\sum_{k=0}^{N-1} \alpha_k \varphi_k = \mathbf{0}$ is true only if $\alpha_k = 0$ for all $k$. Otherwise, the set is linearly dependent. An infinite set of vectors is called linearly independent when every finite subset is linearly independent.
 
 The below code shows how we can define vectors using numpy, as well as give a visual for what addition in a vector space looks like. Here, we work in the vector space $\mathbb{R}^2$ for ease of visualization, but numpy supports any arbitrary dimensioned vector space.
 
@@ -161,7 +161,7 @@ Norms get their name from the fact that they can be used to **normalize** a vect
 
 A famous result of the above is the **Cauchy-Schwarz Inequality**: $\vert \langle \mathbf{x}, \mathbf{y} \rangle \vert \leq \vert\vert \mathbf{x} \vert\vert \cdot \vert\vert \mathbf{y} \vert\vert$ with equality if and only if $\mathbf{y} = \alpha \mathbf{x}$ for some scalar $\alpha$. This also leads to the result of the angle between two vectors being given as such: $\cos(\theta) = \dfrac{\langle \mathbf{x}, \mathbf{y} \rangle}{\vert\vert \mathbf{x} \vert\vert \cdot \vert\vert \mathbf{y} \vert\vert}$. [[1]](#ref1)
 
-In more general terms, the **Euclidean norm** on $\mathbb{C}^N$, otherwise know as the $\mathcal{l}_2$ norm, is given as $\vert\vert \mathbf{x} \vert\vert_2 = (\sum_{n=0}^{N-1} \vert x_n \vert^2)^{1/2}$. For norms not induced by an inner product, there is also the **Manhatten norm** on $\mathbb{C}^N$, otherwise know as the $\mathcal{l}_1$ norm, given as $\vert\vert \mathbf{x} \vert\vert_1 = \sum_{n=0}^{N-1} \vert x_n \vert$. The $\mathcal{l}_{\infty}$ norm defined on $\mathbb{C}^N$ is defined as $\vert\vert \mathbf{x} \vert\vert_{\infty} = \text{max}_{n=0, 1, ..., N-1} \vert x_n \vert$, or the element of largest absalute value. These norms are further generalized to the notion of the $\mathcal{l}_{p}$ norm given as $\vert\vert \mathbf{x} \vert\vert_p = (\sum_{n=0}^{N-1} \vert x_n \vert^p)^{1/p}$ where $p$ is a real-valued scalar greater than or equal to 1. If the $\mathcal{l}_{p}$ norm is not given (such as $\vert\vert \cdot \vert\vert$), it can be assumed that it is refering to the $\mathcal{l}_{2}$ norm. [[2]](#ref2)
+In more general terms, the **Euclidean norm** on $\mathbb{C}^N$, otherwise know as the $\mathcal{l}$ norm, is given as $\vert\vert \mathbf{x} \vert\vert_2 = (\sum_{n=0}^{N-1} \vert x_n \vert^2)^{1/2}$. For norms not induced by an inner product, there is also the **Manhatten norm** on $\mathbb{C}^N$, otherwise know as the $\mathcal{l}_1$ norm, given as $\vert\vert \mathbf{x} \vert\vert_1 = \sum_{n=0}^{N-1} \vert x_n \vert$. The $\mathcal{l}_{\infty}$ norm defined on $\mathbb{C}^N$ is defined as $\vert\vert \mathbf{x} \vert\vert_{\infty} = \text{max}_{n=0, 1, ..., N-1} \vert x_n \vert$, or the element of largest absalute value. These norms are further generalized to the notion of the $\mathcal{l}_{p}$ norm given as $\vert\vert \mathbf{x} \vert\vert_p = (\sum_{n=0}^{N-1} \vert x_n \vert^p)^{1/p}$ where $p$ is a real-valued scalar greater than or equal to 1. If the $\mathcal{l}_{p}$ norm is not given (such as $\vert\vert \cdot \vert\vert$), it can be assumed that it is refering to the $\mathcal{l}_{2}$ norm. [[2]](#ref2)
 
 Since all inner product spaces induce a norm, it follows that every inner product space is also a **normed vector space**. As it was mentioned that norms do not need to be defined by an inner product, it also follows that a normed vector space need not also be an inner product space. [[1]](#ref1) [[2]](#ref2)
 
@@ -222,20 +222,17 @@ Before getting to Banach and Hilbert spaces, we have to define some important te
 
 Cauchy sequences are a formalization of the concept of convergence. One counter example--that is, a sequence that convergences to a value not within its space--is the sequence $x_k = \sum_{n=0}^\infty \dfrac{1}{n!}$. This sequence consists of values in the set of rational numbers $\mathbb{Q}$, but converges to the irrational number $e$. Thus, this sequence is not **complete**. We can make it complete, however, by instead defining this sequence in the set of real numbers $\mathbb{R}$, of which both the irrational $e$ and the rational values $1 / n!$ are members of. [[1]](#ref1)
 
-> **COMPLETENESS**
->
+**COMPLETENESS**
 > A normed vector space $\mathcal{V}$ is said to be complete when every Cauchy sequence in $\mathcal{V}$ converges to a vector in $\mathcal{V}$
 
 ### Banach and Hilbert spaces <a name="banach-hilbert"></a>
 
 With the above definitions out of the way, defining Banach and Hilbert spaces is trivial.
 
-> **BANACH SPACES**
->
+**BANACH SPACES**
 > A complete normed vector space is called a Banach space.
 
-> **HILBERT SPACES**
->
+**HILBERT SPACES**
 > A complete inner product space is called a Hilbert space.
 
 Easy! All of the properties of normed vector spaces and inner product spaces defined above can be applied. That is, Banach and Hilbert spaces are subsets of normed vector and inner product spaces, respectively. Additionally, Hilbert spaces are a subset of Banach spaces. The [following section](#ex-spaces) will have a venn diagram explaining these relationships, as well as go over the most common examples from each.
