@@ -99,8 +99,8 @@ using UF’s HiPerGator supercomputer
 * Teaching
 * Agile workflow
 * Self-learning
-* Lab skills (soldering, benchtop testing, etc.)
 * Applied math (stochastics, optimization, matrix methods)
+* Lab skills (soldering, benchtop testing, etc.)
 
 **Software**
 
@@ -108,9 +108,7 @@ using UF’s HiPerGator supercomputer
 * FreeRTOS
 * Git
 * Jira
-* Jupyter Notebooks
-* Sklearn, Pandas, and TensorFlow
-* LaTex
+* Sklearn, Pandas, PyTorch, and TensorFlow
 * Vivado
 * Quartus
 * Altium
@@ -136,7 +134,7 @@ using UF’s HiPerGator supercomputer
 
 * Neural Signals, Systems, and Technology
 
-* Stochastic Control
+* Stochastic Control and Reinforcement Learning
 
 * Stochastic Methods
 
@@ -169,3 +167,5 @@ using UF’s HiPerGator supercomputer
 * Data Structures & Algorithms
 
 * Operating Systems
+
+* Coursera's Tensorflow: Advanced Techniques specialty
