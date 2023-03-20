@@ -11,13 +11,13 @@ permalink: /resume
 ## Education
 ------------
 
+2022-2023 (Expected)
+:   **MS, Electrical & Computer Engineering** \| University of Florida (Gainesville, FL)
+
 2018-2022
 :   **BS, Electrical Engineering**	\| University of Florida (Gainesville, FL)
 :	**Minor, Computer Science**		\| University of Florida (Gainesville, FL)
 :	**GPA:** 3.73
-
-2022-2023 (Expected)
-:   **MS, Electrical & Computer Engineering** \| University of Florida (Gainesville, FL)
 
 
 ## Experience
@@ -134,7 +134,7 @@ using UF’s HiPerGator supercomputer
 
 * Neural Signals, Systems, and Technology
 
-* Stochastic Control and Reinforcement Learning
+* Stochastic Control & Reinforcement Learning
 
 * Stochastic Methods
 
@@ -169,3 +169,7 @@ using UF’s HiPerGator supercomputer
 * Operating Systems
 
 * Coursera's Tensorflow: Advanced Techniques specialty
+
+    - Custom & Distributed Training
+    - Advanced Computer Vision
+    - Generative Deep Learning
