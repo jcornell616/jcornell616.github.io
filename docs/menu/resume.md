@@ -25,6 +25,8 @@ permalink: /resume
 **DSP Engineer | BlackSignal Technologies**
 :   *January 2024-Present*
 
+- Signal detection using deep learning on neuromorphic chips
+
 **Embedded Engineering Intern | Lutron Electronics**
 :   *June 2022-August 2022*
 
