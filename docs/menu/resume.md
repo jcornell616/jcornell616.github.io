@@ -22,7 +22,7 @@ permalink: /resume
 ## Experience
 -------------
 
-**DSP Engineer | BlackSignal Technologies **
+**DSP Engineer | BlackSignal Technologies**
 :   *January 2024-Present*
 
 **Embedded Engineering Intern | Lutron Electronics**
